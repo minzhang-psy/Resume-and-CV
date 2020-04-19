@@ -1,6 +1,6 @@
 ---
-title: "Nick Strayer's CV"
-author: Nick Strayer
+title: "Cianna Bedford-Petersen's CV"
+author: Cianna Bedford-Petersen
 date: "`r Sys.Date()`"
 output:
   pagedown::html_resume:
@@ -17,6 +17,7 @@ knitr::opts_chunk$set(
 
 library(glue)
 library(tidyverse)
+library(pagedown)
 
 # ======================================================================
 # These variables determine how the the data is loaded and how the exports are
@@ -27,7 +28,7 @@ library(tidyverse)
 using_googlesheets <- TRUE
 
 # Just the copied URL from the sheet
-positions_sheet_loc <- "https://docs.google.com/spreadsheets/d/14MQICF2F8-vf8CKPF1m4lyGKO6_thG-4aSwat1e2TWc"
+positions_sheet_loc <- "https://docs.google.com/spreadsheets/d/1GXaLpPM1zBxquPTobZ2L2lGBZDxOOOvb5W16w01OlZE/edit#gid=1406459246"
 
 # Is this sheet available for anyone to read? If you're using a private sheet
 # set this to false and go to gather_data.R and run the data loading manually
@@ -40,8 +41,8 @@ sheet_is_publicly_readable <- TRUE
 PDF_EXPORT <- FALSE
 
 
-CV_PDF_LOC <- "https://github.com/nstrayer/cv/raw/master/strayer_cv.pdf"
-CV_HTML_LOC <- "nickstrayer.me/cv/"
+CV_PDF_LOC <- "https://github.com/ciannabp/resume/raw/master/bedfordpetersen_cv.pdf"
+CV_HTML_LOC <- "ciannabedfordpetersen.me/cv/"
 
 
 # A global (gasp) variable that holds all the links that were inserted for
@@ -78,17 +79,6 @@ Aside
 ================================================================================
 
 
-![logo](logo.png){width=100%}
-
-```{r}
-# When in export mode the little dots are unaligned, so fix that. 
-if(PDF_EXPORT){
-  glue("View this CV online with links at _{CV_HTML_LOC}_")
-} else {
-  glue("[<i class='fas fa-download'></i> Download a PDF of this CV]({CV_PDF_LOC})")
-}
-```
-
 Contact {#contact}
 --------------------------------------------------------------------------------
 
@@ -99,7 +89,7 @@ contact_info %>%
 
 
 
-Language Skills {#skills}
+Skills {#skills}
 --------------------------------------------------------------------------------
 
 ```{r}
@@ -111,18 +101,25 @@ build_skill_bars(skills)
 Disclaimer {#disclaimer}
 --------------------------------------------------------------------------------
 
-Made with the R package [**pagedown**](https://github.com/rstudio/pagedown). 
+Made with [**pagedown**](https://github.com/rstudio/pagedown). 
 
-The source code is available at [github.com/nstrayer/cv](https://github.com/nstrayer/cv).
+Source code on [GitHub](https://github.com/ciannabp/resume).
 
 Last updated on `r Sys.Date()`.
 
-
+```{r}
+# When in export mode the little dots are unaligned, so fix that. 
+if(PDF_EXPORT){
+  glue("View this CV online with links at _{CV_HTML_LOC}_")
+} else {
+  glue("[<i class='fas fa-download'></i> Download a PDF of this CV]({CV_PDF_LOC})")
+}
+```
 
 Main
 ================================================================================
 
-Nick Strayer {#title}
+Cianna Bedford-Petersen {#title}
 --------------------------------------------------------------------------------
 
 ```{r}
@@ -140,16 +137,15 @@ print_section(position_data, 'education')
 
 
 
-Research Experience {data-icon=laptop}
+Professional Experience {data-icon=laptop}
 --------------------------------------------------------------------------------
 
 ```{r}
-print_section(position_data, 'research_positions')
+print_section(position_data, 'professional_experience')
 ```
 
 
-
-Industry Experience {data-icon=suitcase}
+Peer-reviewed Publications {data-icon=book}
 --------------------------------------------------------------------------------
 
 ::: aside
@@ -159,7 +155,7 @@ print_text_block(text_blocks, 'industy_experience_aside')
 :::
 
 ```{r}
-print_section(position_data, 'industry_positions')
+print_section(position_data, 'peer_reviewed_publications')
 ```
 
 <!-- These breaks just force a new page so section doesnt get cut off -->
@@ -167,7 +163,7 @@ print_section(position_data, 'industry_positions')
 <br>
 <br>
 
-Teaching Experience {data-icon=chalkboard-teacher}
+Works in Progress {data-icon=edit}
 --------------------------------------------------------------------------------
 
 ::: aside
@@ -177,12 +173,12 @@ print_text_block(text_blocks, 'teaching_experience_aside')
 :::
 
 ```{r}
-print_section(position_data, 'teaching_positions')
+print_section(position_data, 'progress')
 ```
 
 
 
-Selected Data Science Writing {data-icon=chart-line}
+Presentations {data-icon=image}
 --------------------------------------------------------------------------------
 
 ::: aside
@@ -192,16 +188,16 @@ print_text_block(text_blocks, 'data_science_writing_aside')
 :::
 
 ```{r}
-print_section(position_data, 'data_science_writings')
+print_section(position_data, 'presentations')
 ```
 
 
 
-Selected Press (About)  {data-icon=newspaper}
+Honors and Awards {data-icon=medal}
 --------------------------------------------------------------------------------
 
 ```{r}
-print_section(position_data, 'about_me_press')
+print_section(position_data, 'awards')
 ```
 
 
@@ -209,20 +205,20 @@ print_section(position_data, 'about_me_press')
 <br>
 
 
-Selected Press (By)  {data-icon=newspaper}
+Teaching Experience {data-icon=chalkboard-teacher}
 --------------------------------------------------------------------------------
 
 ```{r}
-print_section(position_data, 'by_me_press')
+print_section(position_data, 'teaching')
 ```
 
 
 
-Selected Publications, Posters, and Talks {data-icon=book}
+Service Work {data-icon=handshake}
 --------------------------------------------------------------------------------
 
 ```{r}
-print_section(position_data, 'academic_articles')
+print_section(position_data, 'service')
 ```
 
 
