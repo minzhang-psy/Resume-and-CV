@@ -41,7 +41,7 @@ sheet_is_publicly_readable <- TRUE
 PDF_EXPORT <- FALSE
 
 
-CV_PDF_LOC <- "https://github.com/ciannabp/resume/raw/master/bedfordpetersen_cv.pdf"
+CV_PDF_LOC <- "https://github.com/ciannabp/resume/blob/master/bedford-petersen_cv.pdf"
 CV_HTML_LOC <- "ciannabedfordpetersen.me/cv/"
 
 
@@ -166,9 +166,7 @@ print_section(position_data, 'peer_reviewed_publications')
 ```
 
 <!-- These breaks just force a new page so section doesnt get cut off -->
-<br>
-<br>
-<br>
+
 
 Works in Progress {data-icon=edit}
 --------------------------------------------------------------------------------
@@ -182,8 +180,6 @@ print_text_block(text_blocks, 'teaching_experience_aside')
 ```{r}
 print_section(position_data, 'progress')
 ```
-
-
 
 Selected Talks {data-icon=users}
 --------------------------------------------------------------------------------
@@ -206,10 +202,6 @@ Honors & Awards {data-icon=medal}
 ```{r}
 print_section(position_data, 'awards')
 ```
-
-
-<br>
-<br>
 
 
 Teaching Experience {data-icon=chalkboard-teacher}
