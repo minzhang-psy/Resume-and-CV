@@ -89,11 +89,18 @@ contact_info %>%
 
 
 
-Skills {#skills}
+Programming Skills {#skills}
 --------------------------------------------------------------------------------
 
 ```{r}
 build_skill_bars(skills)
+```
+
+Statistical Skills {#stats}
+--------------------------------------------------------------------------------
+
+```{r}
+build_stats_bars(stats)
 ```
 
 
@@ -178,22 +185,22 @@ print_section(position_data, 'progress')
 
 
 
-Presentations {data-icon=image}
+Selected Talks {data-icon=users}
 --------------------------------------------------------------------------------
 
-::: aside
 ```{r}
-print_text_block(text_blocks, 'data_science_writing_aside')
-```
-:::
-
-```{r}
-print_section(position_data, 'presentations')
+print_section(position_data, 'talks')
 ```
 
+Selected Poster Presentations {data-icon=image}
+--------------------------------------------------------------------------------
+
+```{r}
+print_section(position_data, 'posters')
+```
 
 
-Honors and Awards {data-icon=medal}
+Honors & Awards {data-icon=medal}
 --------------------------------------------------------------------------------
 
 ```{r}

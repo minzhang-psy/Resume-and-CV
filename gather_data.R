@@ -21,6 +21,7 @@ if(using_googlesheets){
   
   position_data <- read_sheet(positions_sheet_loc, sheet = "positions")
   skills        <- read_sheet(positions_sheet_loc, sheet = "language_skills")
+  stats       <- read_sheet(positions_sheet_loc, sheet = "stats")
   text_blocks   <- read_sheet(positions_sheet_loc, sheet = "text_blocks")
   contact_info  <- read_sheet(positions_sheet_loc, sheet = "contact_info", skip = 1)
   
@@ -29,6 +30,7 @@ if(using_googlesheets){
   # Want to go oldschool with just a csv?
   position_data <- read_csv("csvs/positions.csv")
   skills        <- read_csv("csvs/language_skills.csv")
+  stats        <- read_csv("csvs/stats.csv")
   text_blocks   <- read_csv("csvs/text_blocks.csv")
   contact_info  <- read_csv("csvs/contact_info.csv", skip = 1)
   
