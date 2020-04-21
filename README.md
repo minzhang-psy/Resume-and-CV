@@ -12,7 +12,6 @@ The main files are:
   - `resume.html`/`bedford-petersen_resume.pdf`: Result for single page resume.
 - `parsing_functions.R`: A series of small functions for parsing a position entry into the proper HTML format. Includes logic for removing links if needed etc..
 - `gather_data.R`: Loads the data that makes up the body of both the CV and resume. Either pulls from a specified google sheet with info or multiple csvs. (Examples of both are provided in repo.)
-- `csvs/*.csv`: A series of CSVs containing the information CV and resume. Included as examples if the non-googlesheets method of storing data is prefered.  
 - `css/`: Directory containing the custom CSS files used to tweak the default 'resume' format from pagedown. 
 
 ## Want to use this to build your own CV/resume? 
