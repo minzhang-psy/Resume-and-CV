@@ -149,7 +149,7 @@ position_data %>% print_section('education_resume')
 
 
 
-Selected Positions {data-icon=laptop}
+Selected Positions {data-icon=suitcase}
 --------------------------------------------------------------------------------
 
 ```{r}
