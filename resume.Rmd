@@ -1,6 +1,6 @@
 ---
-title: Nick Strayer's Resume"
-author: Nick Strayer
+title: Cianna Bedford-Petersen's Resume"
+author: Cianna Bedford-Petersen
 date: "`r Sys.Date()`"
 output:
   pagedown::html_resume:
@@ -27,7 +27,7 @@ library(glue)
 using_googlesheets <- TRUE
 
 # Just the copied URL from the sheet
-positions_sheet_loc <- "https://docs.google.com/spreadsheets/d/14MQICF2F8-vf8CKPF1m4lyGKO6_thG-4aSwat1e2TWc"
+positions_sheet_loc <- "https://docs.google.com/spreadsheets/d/1GXaLpPM1zBxquPTobZ2L2lGBZDxOOOvb5W16w01OlZE/edit#gid=1406459246"
 
 # Is this sheet available for anyone to read? If you're using a private sheet
 # set this to false and go to gather_data.R and run the data loading manually
@@ -57,15 +57,8 @@ source('gather_data.R')
 # Now we just need to filter down the position data to include less verbose
 # categories and only the entries we have designated for the resume
 position_data <- position_data %>% 
-  filter(in_resume) %>% 
-  mutate(
-    # Build some custom sections by collapsing others
-    section = case_when(
-      section %in% c('research_positions', 'industry_positions') ~ 'positions', 
-      section %in% c('data_science_writings', 'by_me_press') ~ 'writings',
-      TRUE ~ section
-    )
-  ) 
+  filter(in_resume)
+
 ```
 
 
@@ -73,8 +66,12 @@ position_data <- position_data %>%
 Aside
 ================================================================================
 
+<br>
+<br>
+<br>
+<br>
 
-![logo](logo.png){width=100%}
+
 
 Contact {#contact}
 --------------------------------------------------------------------------------
@@ -84,7 +81,10 @@ contact_info %>%
   glue_data("- <i class='fa fa-{icon}'></i> {contact}")
 ```
 
-
+<br>
+<br>
+<br>
+<br>
 
 Language Skills {#skills}
 --------------------------------------------------------------------------------
@@ -93,31 +93,38 @@ Language Skills {#skills}
 build_skill_bars(skills)
 ```
 
+<br>
 
 
-Open Source Contributions {#open-source}
+Statistical Skills {#stats}
 --------------------------------------------------------------------------------
 
-All projects available at `github.com/nstrayer/<name>`
+```{r}
+build_stats_bars(stats)
+```
 
-
-- `shinysense`: R package to use sensor data in Shiny apps
-- `tuftesque`: Hugo theme (behind LiveFreeOrDichotomize.com)
-- `sbmR`: R package for fitting stochasitic block models
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
 More info {#more-info}
 --------------------------------------------------------------------------------
 
-See full CV at nickstrayer.me/cv for more complete list of positions and publications.
+See full CV at nickstrayer.me/cv for more complete list of positions and [publications](https://scholar.google.com/citations?user=74mOaFcAAAAJ&hl=en).
 
 
 Disclaimer {#disclaimer}
 --------------------------------------------------------------------------------
 
-Made w/ [**pagedown**](https://github.com/rstudio/pagedown). 
+Made with [**pagedown**](https://github.com/rstudio/pagedown). 
 
-Source code: [github.com/nstrayer/cv](https://github.com/nstrayer/cv).
+Source code on [GitHub](https://github.com/ciannabp/resume).
 
 Last updated on `r Sys.Date()`.
 
@@ -126,38 +133,35 @@ Last updated on `r Sys.Date()`.
 Main
 ================================================================================
 
-Nick Strayer {#title}
+Cianna Bedford-Petersen {#title}
 --------------------------------------------------------------------------------
 
 ```{r}
 print_text_block(text_blocks, 'intro')
 ```
 
-
-
 Education {data-icon=graduation-cap data-concise=true}
 --------------------------------------------------------------------------------
 
 ```{r}
-position_data %>% print_section('education')
+position_data %>% print_section('education_resume')
 ```
 
 
 
-Selected Positions {data-icon=suitcase}
+Selected Positions {data-icon=laptop}
 --------------------------------------------------------------------------------
 
 ```{r}
-position_data %>% print_section('positions')
+position_data %>% print_section('professional_experience')
 ```
 
 
-
-Selected Writing {data-icon=newspaper}
+Selected Teaching Experiences {data-icon=chalkboard-teacher}
 --------------------------------------------------------------------------------
 
 ```{r}
-position_data %>% print_section('writings')
+print_section(position_data, 'teaching')
 ```
 
 

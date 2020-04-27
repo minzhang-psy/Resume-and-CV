@@ -72,12 +72,12 @@ if(PDF_EXPORT){
   }
   </style>")
 }
+
 ```
 
 
 Aside
 ================================================================================
-
 
 Contact {#contact}
 --------------------------------------------------------------------------------
@@ -114,24 +114,12 @@ Source code on [GitHub](https://github.com/ciannabp/resume).
 
 Last updated on `r Sys.Date()`.
 
-```{r}
-# When in export mode the little dots are unaligned, so fix that. 
-if(PDF_EXPORT){
-  glue("View this CV online with links at _{CV_HTML_LOC}_")
-} else {
-  glue("[<i class='fas fa-download'></i> Download a PDF of this CV]({CV_PDF_LOC})")
-}
-```
 
 Main
 ================================================================================
 
 Cianna Bedford-Petersen {#title}
 --------------------------------------------------------------------------------
-
-```{r}
-print_text_block(text_blocks, 'intro')
-```
 
 
 
@@ -220,6 +208,13 @@ Service Work {data-icon=handshake}
 print_section(position_data, 'service')
 ```
 
+
+References {data-icon=address-card}
+--------------------------------------------------------------------------------
+
+```{r}
+print_section(position_data, 'references')
+```
 
 
 ```{r}
